@@ -29,10 +29,10 @@
           Datasets
           </a >
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="http://localhost:8000/view_unbounded.html?obj=posterreal">posterreal BDRP</a></li>
-            <li><a class="dropdown-item" href="http://localhost:8000/view_unbounded.html?obj=posterreal2">posterreal2 BDRP</a></li>
-            <li><a class="dropdown-item" href="http://localhost:8000/view_unbounded.html?obj=posterreal3">posterreal3 BDRP</a></li>
-
+            <li><a id="posterreal" class="dropdown-item">posterreal BDRP</a></li>
+            <li><a id="posterreal2" class="dropdown-item">posterreal2 BDRP</a></li>
+            <li><a id="posterreal3" class="dropdown-item">posterreal3 BDRP</a></li>
+            
 
             
           </ul>
@@ -67,7 +67,7 @@
 
           
           <div >
-            <button class="btn btn-light w-100 mt-2 mb-2" id="save">Save</button>
+            <button class="btn btn-light w-100 mt-2 mb-2" id="save">Take screenshot</button>
             
           </div>
 
@@ -789,6 +789,14 @@ var saveFile = function (strData, filename) {
 
     }
     setInterval(getGPUAndFPSInfo, 2000);
+
+    // Get the current host URL
+  const currentHost = window.location.origin;
+
+// Dynamically set the href attributes of the dropdown items
+document.getElementById("posterreal").href = currentHost + "/view_unbounded.html?obj=posterreal";
+document.getElementById("posterreal2").href = currentHost + "/view_unbounded.html?obj=posterreal2";
+document.getElementById("posterreal3").href = currentHost + "/view_unbounded.html?obj=posterreal3";
 
 
 </script>
