@@ -984,7 +984,7 @@ const viewDependenceNetworkShaderFunctions2 = `
         document.getElementById("heapdisplay2").innerHTML =
         'JS Heap Size Limit:' +  (memoryInfo.jsHeapSizeLimit / (1024 * 1024)).toFixed(2)+ 'MB'; 
         document.getElementById("heapdisplay3").innerHTML =
-        'Page Load Time:' +  pageLoadTime.toFixed(2) +'mst'; 
+        'Page Load Time:' +  pageLoadTime.toFixed(2) +'ms'; 
       }
       
   }
@@ -1256,21 +1256,26 @@ children[0].material.uniforms.deformationAmountZ.value = deformationAmountZ;
     render();
 }
 
+
+// Get the path part of the URL
+var path = window.location.pathname;
+
+// Remove parameters if any
+var currentHost = path.split('?')[0];
 // Get the current host URL
-const currentHost = window.location.hostname;
 
 // Dynamically set the href attributes of the dropdown items
-document.getElementById("chairBDRP_red").href = currentHost + "/view_synthetic.html?obj=chairBDRP";
-document.getElementById("chair_red").href = currentHost + "/view_synthetic.html?obj=chair";
-document.getElementById("drums_red").href = currentHost + "/view_synthetic.html?obj=drums";
-document.getElementById("drumsBDRP_red").href = currentHost + "/view_synthetic.html?obj=drumsBDRP";
-document.getElementById("drumsBDRP2_red").href = currentHost + "/view_synthetic.html?obj=drumsBDRP2";
-document.getElementById("ficus_red").href = currentHost + "/view_synthetic.html?obj=ficus";
-document.getElementById("hotdog_red").href = currentHost + "/view_synthetic.html?obj=hotdog";
-document.getElementById("lego_red").href = currentHost + "/view_synthetic.html?obj=lego";
-document.getElementById("materials_red").href = currentHost + "/view_synthetic.html?obj=materials";
-document.getElementById("mic_red").href = currentHost + "/view_synthetic.html?obj=mic";
-document.getElementById("ship_red").href = currentHost + "/view_synthetic.html?obj=ship";
+document.getElementById("chairBDRP_red").href = currentHost + "?obj=chairBDRP";
+document.getElementById("chair_red").href = currentHost + "?obj=chair";
+document.getElementById("drums_red").href = currentHost + "?obj=drums";
+document.getElementById("drumsBDRP_red").href = currentHost + "?obj=drumsBDRP";
+document.getElementById("drumsBDRP2_red").href = currentHost + "?obj=drumsBDRP2";
+document.getElementById("ficus_red").href = currentHost + "?obj=ficus";
+document.getElementById("hotdog_red").href = currentHost + "?obj=hotdog";
+document.getElementById("lego_red").href = currentHost + "?obj=lego";
+document.getElementById("materials_red").href = currentHost + "?obj=materials";
+document.getElementById("mic_red").href = currentHost + "?obj=mic";
+document.getElementById("ship_red").href = currentHost + "?obj=ship";
 
 
 

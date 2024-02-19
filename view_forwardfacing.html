@@ -657,10 +657,16 @@ var saveFile = function (strData, filename) {
   document.getElementById("save").addEventListener("click", saveAsImage, false);
  
 
-  const currentHost = window.location.origin;
+
+// Get the path part of the URL
+var path = window.location.pathname;
+
+// Remove parameters if any
+var currentHost = path.split('?')[0];
+// Get the current host URL
 
 // Dynamically set the href attributes of the dropdown items
-document.getElementById("posterreal").href = currentHost + "/view_unbounded.html?obj=posterreal";
-document.getElementById("posterreal2").href = currentHost + "/view_unbounded.html?obj=posterreal2";
+document.getElementById("posterreal").href = currentHost + "?obj=posterreal";
+document.getElementById("posterreal2").href = currentHost + "?obj=posterreal2";
 
 </script>
