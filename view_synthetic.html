@@ -835,6 +835,7 @@ const viewDependenceNetworkShaderFunctions2 = `
 
   function loadOther(name) {
     const objname =name;
+    var position= new THREE.Vector3(0.1, 0.1, 0.1);
 
     let obj_name = "ficus";
     if (objname) {
@@ -852,7 +853,7 @@ const viewDependenceNetworkShaderFunctions2 = `
 
     container = document.getElementById("container");
     
-    scene = new THREE.Scene();
+    //scene = new THREE.Scene();
 
     fetch(obj_name + "_phone/mlp.json")
       .then((response) => {
@@ -898,6 +899,8 @@ const viewDependenceNetworkShaderFunctions2 = `
                   child.material = newmat;
                 }
               });
+              object.position.copy(position); // Set position of the object
+                        
               object.scale.x = object_rescale;
               object.scale.y = object_rescale;
               object.scale.z = object_rescale;
@@ -920,7 +923,7 @@ const viewDependenceNetworkShaderFunctions2 = `
         );
 
         // PostProcessing setup
-        postScene = new THREE.Scene();
+        //postScene = new THREE.Scene();
         postScene.background = new THREE.Color("rgb(255, 255, 255)");
         //postScene.background = new THREE.Color("rgb(128, 128, 128)");
         postCamera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
