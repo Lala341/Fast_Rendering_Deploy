@@ -4,96 +4,237 @@
  
 
 </header>
-<div class="container-fluid" style="position: fixed; top: 10%; left: 0%">
-  <div class="row">
-    
-    <div class="col-md-9">
-      <div id="container" >
-  
-      </div>
-      
-    </div>
-    <div class="col-md-3">
+<div>
+  <!-- NavBar -->
 
-    
-      <p class="d-inline-flex gap-1">
+  <div class="container-fluid" style="position: fixed; top: 0%; left: 0%">
+    <div class="row">
+
+      <div>
+        <div id="container" style="position: fixed; top: 70px;">
+
+        </div>
+
+      </div>
+      <div style="position: absolute; top: 5%; right: 0%; width: 60%;">
+
+
+        <p class="d-inline-flex gap-1">
         <div class="row">
-        <div class="col-md-5">
-        <a class="btn btn-dark w-100" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" weight="80%">
-          Options
-        </a>
-      </div>
-        <div class="col-md-5">
- 
-         <a  class="btn btn-light dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false" ">
-          Datasets
+          <div class="col-md-4">
+            <a class="btn btn-dark w-100" data-bs-toggle="collapse" href="#collapseInformation" role="button"
+              aria-expanded="false" aria-controls="collapseInformation" weight="80%">
+              Metrics
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a class="btn btn-dark w-100" data-bs-toggle="collapse" href="#collapseExample" role="button"
+              aria-expanded="false" aria-controls="collapseExample" weight="80%">
+              Options
+            </a>
+          </div>
+
+       
+          <div class="col-md-4">
+
+            <a class="btn btn-light dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false" ">
+          Datasets/Load
           </a >
-          <ul class="dropdown-menu">
-            <li><a id="posterreal" class="dropdown-item">posterreal BDRP</a></li>
-<li><a id="posterreal2" class="dropdown-item">posterreal2 BDRP</a></li>
+          <ul class=" dropdown-menu">
+              <li><a id="posterrealimage4" class="dropdown-item">posterrealimage4</a></li>
+              <li><a id="posterrealimage8" class="dropdown-item">posterrealimage8</a></li>
+              <li><a id="posterrealimage4m" class="dropdown-item">posterrealimage4_mask</a></li>
+              </ul>
 
-            
-          </ul>
+          </div>
+        </div>
+        </p>
+        <div class="collapse pb-2" id="collapseExample" >
+          <div class="card card-body">
 
-</div>
-</div>
-      </p>
-      <div class="collapse" id="collapseExample">
-        <div class="card card-body">
-          
-          <div style="margin: 20px;">
-            
-  <div >
-    <label for="dampingFactorInput">Damping Factor:</label>
-    <input type="range" id="dampingFactorInput" min="0" max="1" step="0.01" value="0.25" />
-  </div>
-  <div>
-    <label for="zoomInput">Zoom Level:</label>
-    <input type="range" id="zoomInput" min="0" max="100" value="50" />
-   
-  </div>
-            <div >
-              <button class="btn btn-light w-100 mt-2 mb-2" id="rotateButton">Rotate</button>
-              
+            <div style="margin: 20px;">
+
+              <div>
+                <label for="dampingFactorInput">Damping Factor:</label>
+                <input type="range" id="dampingFactorInput" min="0" max="1" step="0.01" value="0.25" />
+              </div>
+              <div>
+                <label for="zoomInput">Zoom Level:</label>
+                <input type="range" id="zoomInput" min="0" max="100" value="50" />
+
+              </div>
+              <div>
+                <button class="btn btn-light w-100 mt-2 mb-2" id="rotateButton">Rotate</button>
+
+              </div>
+
+
+
+              <div>
+
+                <div class="row">
+
+                  <div class="col-5">
+                    <label for="toggleGrid">Toggle Grid:</label>
+                    <input type="checkbox" id="toggleGrid" />
+                  </div>
+                  <div class="col-5">
+
+                    <label for="toggleAxes">Toggle Axes:</label>
+                    <input type="checkbox" id="toggleAxes" />
+
+                  </div>
+                </div>
+
+
+
+
+              </div>
+
+
+              <div>
+                <button class="btn btn-light w-100 mt-2 mb-2" id="save">Take screenshot</button>
+
+              </div>
+
+
+              <br />
+
+
             </div>
 
 
-            
-            <div >
-            
-          </div>
-
-          
-          <div >
-            <button class="btn btn-light w-100 mt-2 mb-2" id="save">Take screenshot</button>
-            
-          </div>
 
 
-          <div>
-            <br/>
-            <br/>
-          Information
-          <br/>
-          <br/>
-          <div >
-            Model: MobileNeRF BDPR
-          </div>
-          <div id="modelname"></div>
-          <div id="sizelayout"></div>
-    
-              <div id="fpsdisplay"></div>
-            <div id="sizedisplay"></div>
-            <br/>
-          </div>
 
-          
+          </div>
         </div>
+
+
+        <div class="collapse pb-2" id="collapseScene"  >
+          <div class="card card-body">
+
+            <div style="margin: 20px; min-height: 50%;">
+
+
+              <div class="table-responsive">
+                <table class="table" id="layerTable">
+                  <thead>
+                    <tr>
+                      <th scope="col">Object</th>
+                      <th scope="col">Position(X)</th>
+                      <th scope="col">Position(Y)</th>
+                      <th scope="col">Position(Z)</th>
+                      <th scope="col">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="objectTableBody">
+                    <tr>
+                      <td style="width: 150px;">
+                        <div class="dropdown" style="position: absolute;">
+                          <button class="btn btn-light dropdown-toggle w-100" type="button" id="dropdownMenu"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Select object
+                          </button>
+                          <ul class="dropdown-menu" id="dropdownMenuItems">
+                            <li><a id="chairBDRP" class="dropdown-item">chair BDRP</a></li>
+                            <li><a id="chair" class="dropdown-item">chair</a></li>
+                            <li><a id="drums" class="dropdown-item">drums</a></li>
+                            <li><a id="drumsBDRP" class="dropdown-item">drums BDRP</a></li>
+                            <li><a id="drumsBDRP2" class="dropdown-item">drums BDRP2</a></li>
+                            <li><a id="ficus" class="dropdown-item">ficus</a></li>
+                            <li><a id="hotdog" class="dropdown-item">hotdog</a></li>
+                            <li><a id="lego" class="dropdown-item">lego</a></li>
+                            <li><a id="materials" class="dropdown-item">materials</a></li>
+                            <li><a id="mic" class="dropdown-item">mic</a></li>
+                            <li><a id="ship" class="dropdown-item">ship</a></li>
+                          </ul>
+                        </div>
+                      </td>
+                      <td><input type="number" class="form-control" id="positionX" value="0.1"></td>
+                      <td><input type="number" class="form-control" id="positionY" value="0.1"></td>
+                      <td><input type="number" class="form-control" id="positionZ" value="0.1"></td>
+                      <td><button class="btn btn-primary" id="buttonaddobject">Add</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+
+
+
+
+            </div>
+
+
+
+
+
+          </div>
+        </div>
+
+
+
+
+        <div class="collapse pb-2" id="collapseInformation"  >
+          <div class="card card-body">
+
+
+            <div style="margin: 20px; min-height: 50%;">
+
+
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Metric</th>
+                      <th scope="col">Value</th>
+                    </tr>
+                  </thead>
+                  <tbody id="objectTableBody">
+                    <tr>
+                      <td class="px-4">Model:</td>
+                      <td class="px-4">MobileNeRF</td>
+                    </tr>
+                    <tr>
+                      <td class="px-4">Object:</td>
+                      <td id="modelname" class="px-4"></td>
+                    </tr>
+                    <tr>
+                      <td class="px-4">Size Layout:</td>
+                      <td id="sizelayout" class="px-4"></td>
+                    </tr>
+                    <tr>
+                      <td class="px-4">FPS:</td>
+                      <td id="fpsdisplay" class="px-4"></td>
+                    </tr>
+                    <tr>
+                      <td class="px-4">Used JS Heap:</td>
+                      <td id="heapdisplay" class="px-4"></td>
+                    </tr>
+                    <tr>
+                      <td class="px-4">Js Heap Size:</td>
+                      <td id="heapdisplay2" class="px-4"></td>
+                    </tr>
+                    <tr>
+                      <td class="px-4">Page load:</td>
+                      <td id="heapdisplay3" class="px-4"></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
       </div>
-      
-      
     </div>
   </div>
+
 </div>
 
 <!-- Write to G-Buffer -->
@@ -381,15 +522,23 @@
   let gLastFrame = window.performance.now();
   let oldMilliseconds = 1000;
 
-  const preset_size_w = 1008;
-  const preset_size_h = 756;
+  const preset_size_w = window.innerWidth; //COPY
+  const preset_size_h = window.innerHeight - 70;
   const object_rescale = 0.1;
+
 
   init();
 
   function init() {
     const params = new URL(window.location.href).searchParams;
     const objname = params.get("obj");
+
+    document.getElementById("modelname").innerHTML =
+    objname;
+
+    document.getElementById("sizelayout").innerHTML =
+      preset_size_w + "x" + preset_size_h;
+
 
     let obj_name = "horns";
     if (objname) {
@@ -542,16 +691,156 @@
       });
   }
 
+
+
+
+  //EDIT
+
+
+  
+  let scene2, postScene2, postCamera2;
+  var memoryInfo;
+  var pageLoadTime;
+  const startTime = performance.now();
+
+  var zoomInput = document.getElementById('zoomInput');
+  var rotateButton = document.getElementById('rotateButton');
+  var dampingFactorInput = document.getElementById('dampingFactorInput');
+
+  var toggleGridCheckbox = document.getElementById('toggleGrid');
+  var toggleAxesCheckbox = document.getElementById('toggleAxes');
+  var axesHelper; // Declare axesHelper variable globally
+  var gridXZ;
+  var gridXY;
+  var gridYZ;
+
+  var objects = [];
+  var meshes = [];
+  var objectNameAdd;
+
+
+
+
+
+  function loadOther(obj_name, positionX, positionY, positionZ) {
+    var position = new THREE.Vector3(positionX, positionY, positionZ);
+
+    var OBJFile = obj_name + "_phone/shape.obj";
+    var PNGFile = obj_name + "_phone/shape.png";
+    var JSONFile = obj_name + "_phone/mlp.json";
+
+
+    container = document.getElementById("container");
+
+    //scene = new THREE.Scene();
+    fetch(obj_name + "_phone/mlp.json")
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+
+        let temp_object = [];
+        for (let i = 0, il = json["obj_num"]; i < il; i++) {
+          let tex0 = new THREE.TextureLoader().load(
+            obj_name + "_phone/shape" + i.toFixed(0) + ".png" + "feat0.png",
+            function () {
+              render();
+            }
+          );
+          tex0.magFilter = THREE.NearestFilter;
+          tex0.minFilter = THREE.NearestFilter;
+          let tex1 = new THREE.TextureLoader().load(
+            obj_name + "_phone/shape" + i.toFixed(0) + ".png" + "feat1.png",
+            function () {
+              render();
+            }
+          );
+
+          tex1.magFilter = THREE.NearestFilter;
+          tex1.minFilter = THREE.NearestFilter;
+          let newmat = new THREE.RawShaderMaterial({
+            side: THREE.DoubleSide,
+            vertexShader: document.querySelector("#gbuffer-vert").textContent.trim(),
+            fragmentShader: document.querySelector("#gbuffer-frag").textContent.trim(),
+            uniforms: {
+              tDiffuse0: { value: tex0 },
+              tDiffuse1: { value: tex1 },
+              deformationAmount: { value: 1.0 },
+              deformationAmountX: { value: 1.0 },
+              deformationAmountZ: { value: 1.0 },
+
+            },
+            glslVersion: THREE.GLSL3,
+          });
+          new OBJLoader().load(
+            obj_name + "_phone/shape" + i.toFixed(0) + ".obj",
+            function (object) {
+              object.traverse(function (child) {
+                if (child.type == "Mesh") {
+                  child.material = newmat;
+                }
+              });
+              object.position.copy(position); // Set position of the object
+
+              object.scale.x = object_rescale;
+              object.scale.y = object_rescale;
+              object.scale.z = object_rescale;
+              scene.add(object);
+              temp_object.push(object);
+
+            }
+          );
+        }
+        let network_weights = json;
+        let fragmentShaderSource =
+          createViewDependenceFunctions(network_weights, viewDependenceNetworkShaderFunctions);
+        let weightsTexZero = createNetworkWeightTexture(
+          network_weights["0_weights"]
+        );
+        let weightsTexOne = createNetworkWeightTexture(
+          network_weights["1_weights"]
+        );
+        let weightsTexTwo = createNetworkWeightTexture(
+          network_weights["2_weights"]
+        );
+
+        const material2 = new THREE.RawShaderMaterial({
+          vertexShader: document.querySelector("#render-vert").textContent.trim(),
+          fragmentShader: fragmentShaderSource,
+          uniforms: {
+            tDiffuse0x: { value: renderTarget.texture[0] },
+            tDiffuse1x: { value: renderTarget.texture[1] },
+            tDiffuse2x: { value: renderTarget.texture[2] },
+            weightsZero: { value: weightsTexZero },
+            weightsOne: { value: weightsTexOne },
+            weightsTwo: { value: weightsTexTwo },
+          },
+          glslVersion: THREE.GLSL3,
+        });
+        //const mesh2 = new THREE.Mesh(object.geometry, material2);
+        const mesh2 = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material2);
+        //mesh2.position.copy(position); // Set position of the object
+        //postScene2 = new THREE.Scene();
+        // postScene2.background = new THREE.Color("rgb(255, 255, 255)");
+        //postScene.background = new THREE.Color("rgb(128, 128, 128)");
+        // postCamera2 = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+        objects.push(temp_object);
+        postScene.add(mesh2);
+        meshes.push([mesh2]);
+        render();
+
+        // render scene into target
+        // renderer.setRenderTarget(null);
+        // renderer.render(postScene2, postCamera2);
+      });
+  }
+
   function onWindowResize() {
     camera.aspect = preset_size_w / preset_size_h;
     camera.updateProjectionMatrix();
-
     renderer.setSize(preset_size_w, preset_size_h);
-
     renderTarget.setSize(preset_size_w * 2, preset_size_h * 2);
-    document.getElementById("sizedisplay").innerHTML =
-      "Size: " + preset_size_w.toFixed(0) + "x" + preset_size_h.toFixed(0);
-
+    // renderTarget2.setSize(preset_size_w * 2, preset_size_h * 2);
     render();
   }
 
@@ -563,14 +852,95 @@
     gLastFrame = currentFrame;
     oldMilliseconds = smoothMilliseconds;
     document.getElementById("fpsdisplay").innerHTML =
-      "FPS: " + smoothFps.toFixed(1);
+      smoothFps.toFixed(1);
+
+    if (memoryInfo) {
+      document.getElementById("heapdisplay").innerHTML =
+        (memoryInfo.usedJSHeapSize / (1024 * 1024)).toFixed(2) + 'MB';
+      document.getElementById("heapdisplay2").innerHTML =
+        (memoryInfo.jsHeapSizeLimit / (1024 * 1024)).toFixed(2) + 'MB';
+      document.getElementById("heapdisplay3").innerHTML =
+        pageLoadTime.toFixed(2) + 'ms';
+    }
+
   }
+
+  window.onload = function () {
+    const endTime = performance.now();
+    pageLoadTime = endTime - startTime;
+    console.log('Page Load Time:', pageLoadTime.toFixed(2), 'ms');
+  };
+
+
+  function getGPUAndFPSInfo() {
+    let fpsCounter = 0;
+    let lastTimestamp = performance.now();
+
+    function checkFPS(timestamp) {
+      fpsCounter++;
+      const elapsed = timestamp - lastTimestamp;
+
+      if (elapsed >= 1000) {
+        const fps = (fpsCounter / elapsed) * 1000;
+        fpsCounter = 0;
+        lastTimestamp = timestamp;
+      }
+
+      requestAnimationFrame(checkFPS);
+    }
+
+    requestAnimationFrame(checkFPS);
+
+    function printMemoryUsage() {
+      if ('performance' in window && 'memory' in performance) {
+        memoryInfo = performance.memory;
+        // console.log('Used JS Heap Size:', memoryInfo.usedJSHeapSize / (1024 * 1024), 'MB');
+        //console.log('JS Heap Size Limit:', memoryInfo.jsHeapSizeLimit / (1024 * 1024), 'MB');
+      }
+    }
+
+    printMemoryUsage();
+
+  }
+  setInterval(getGPUAndFPSInfo, 2000);
+
+
+  function saveAsImage() {
+    var imgData, imgNode;
+
+    try {
+      var strMime = "image/jpeg";
+      var strDownloadMime = "image/octet-stream";
+
+      imgData = renderer.domElement.toDataURL(strMime);
+
+      saveFile(imgData.replace(strMime, strDownloadMime), "test.jpg");
+
+    } catch (e) {
+      console.log(e);
+      return;
+    }
+
+  }
+
+  var saveFile = function (strData, filename) {
+    var link = document.createElement('a');
+    if (typeof link.download === 'string') {
+      document.body.appendChild(link); //Firefox requires the link to be in the body
+      link.download = filename;
+      link.href = strData;
+      link.click();
+      document.body.removeChild(link); //remove the link when done
+    } else {
+      location.replace(uri);
+    }
+  }
+  document.getElementById("save").addEventListener("click", saveAsImage, false);
+
 
   function animate() {
     requestAnimationFrame(animate);
-
     controls.update();
-
     render();
   }
 
@@ -578,33 +948,55 @@
     // render scene into target
     renderer.setRenderTarget(renderTarget);
     renderer.render(scene, camera);
-
-    // render post FX
     renderer.setRenderTarget(null);
     renderer.render(postScene, postCamera);
-
+    renderer.setRenderTarget(null);
     updateFPSCounter();
   }
 
 
 
+  toggleGridCheckbox.addEventListener('change', function () {
+    if (toggleGridCheckbox.checked) {
+      gridXZ = new THREE.GridHelper(100, 10);
+      //gridXZ.setColors(new THREE.Color(0x006600), new THREE.Color(0x006600));
+      postScene.add(gridXZ);
+
+      gridXY = new THREE.GridHelper(100, 10);
+      gridXY.rotation.x = Math.PI / 2;
+      //gridXY.setColors(new THREE.Color(0x000066), new THREE.Color(0x000066));
+      postScene.add(gridXY);
+
+      gridYZ = new THREE.GridHelper(100, 10);
+      gridYZ.rotation.z = Math.PI / 2;
+      //gridYZ.setColors(new THREE.Color(0x660000), new THREE.Color(0x660000));
+      postScene.add(gridYZ);
+    } else {
+      postScene.remove(gridXZ);
+      postScene.remove(gridXY);
+      postScene.remove(gridYZ);
+      gridXZ = undefined;
+      gridXY = undefined;
+      gridYZ = undefined;
+    }
+  });
+
+  toggleAxesCheckbox.addEventListener('change', function () {
+    if (toggleAxes.checked) {
+      axesHelper = new THREE.AxesHelper(5);
+      postScene.add(axesHelper);
+
+    } else {
+      if (axesHelper) {
+        postScene.remove(axesHelper);
+        axesHelper.dispose();
+        axesHelper = null;
+      }
+    }
+    render();
+  });
 
 
-  
-
-
-
-
-
-
-  
-  
-  var zoomInput = document.getElementById('zoomInput');
-  var rotateButton = document.getElementById('rotateButton');
-  var dampingFactorInput = document.getElementById('dampingFactorInput');
-  
-  
- 
   // Add event listener to handle damping factor input change
   dampingFactorInput.addEventListener('input', function () {
     var dampingFactor = parseFloat(dampingFactorInput.value);
@@ -623,50 +1015,191 @@
   });
 
 
-    
-  function saveAsImage() {
-    var imgData, imgNode;
 
-    try {
-        var strMime = "image/jpeg";
-        var strDownloadMime = "image/octet-stream";
 
-        imgData = renderer.domElement.toDataURL(strMime);
+  // Get the path part of the URL
+  var path = window.location.pathname;
 
-        saveFile(imgData.replace(strMime, strDownloadMime), "test.jpg");
+  // Remove parameters if any
+  var currentHost = path.split('?')[0];
+  // Get the current host URL
 
-    } catch (e) {
-        console.log(e);
-        return;
+  // Dynamically set the href attributes of the dropdown items
+  document.getElementById("posterrealimage4").href = currentHost + "?obj=posterrealimage4";
+  document.getElementById("posterrealimage8").href = currentHost + "?obj=posterrealimage8";
+  document.getElementById("posterrealimage4m").href = currentHost + "?obj=posterrealimage4m";
+
+
+
+  function updateobject(index) {
+
+    const positionX = parseFloat(document.getElementById("positionX").value);
+    const positionY = parseFloat(document.getElementById("positionY").value);
+    const positionZ = parseFloat(document.getElementById("positionZ").value);
+
+    var position = new THREE.Vector3(positionX, positionY, positionZ);
+
+    console.log(position);
+    for (var i = 0; i < objects[index].length; i++) {
+      objects[index][i].position.copy(position);
+
+    }
+    for (var i = 0; i < meshes[index].length; i++) {
+      meshes[index][i].position.copy(position);
+
     }
 
-}
+    render();
 
-var saveFile = function (strData, filename) {
-    var link = document.createElement('a');
-    if (typeof link.download === 'string') {
-        document.body.appendChild(link); //Firefox requires the link to be in the body
-        link.download = filename;
-        link.href = strData;
-        link.click();
-        document.body.removeChild(link); //remove the link when done
+  }
+
+  function deletebject(index) {
+
+
+    for (var i = 0; i < objects[index].length; i++) {
+      scene.remove(objects[index][i]);
+
+    }
+    for (var i = 0; i < meshes[index].length; i++) {
+      postScene.remove(meshes[index][i]);
+
+    }
+    var table = document.getElementById("layerTable");
+    table.deleteRow(index + 2);
+    objects.splice(index, 1);
+    meshes.splice(index, 1);
+    render();
+
+  }
+
+  function addNewObjectRow(name, x, y, z, index) {
+    const tbody = document.getElementById("objectTableBody");
+    const newRow = document.createElement("tr");
+
+    newRow.innerHTML = `
+    <td>${name}</td>
+    <td><input type="number" class="form-control" id="positionX" value="${x}"></td>
+    <td><input type="number" class="form-control" id="positionY" value="${y}"></td>
+    <td><input type="number" class="form-control" id="positionZ" value="${z}"></td>
+    <td><button class="btn btn-primary" id="updateobj-${index}">Update</button>
+      <button class="btn btn-secondary" id="deleteobj-${index}">Delete</button></td>
+  `;
+
+    tbody.appendChild(newRow);
+
+
+    var deletebutton = document.getElementById(`deleteobj-${index}`);
+
+    deletebutton.addEventListener('click', function () {
+      deletebject(index);
+    });
+
+    var updatebutton = document.getElementById(`updateobj-${index}`);
+
+    updatebutton.addEventListener('click', function () {
+      updateobject(index);
+    });
+
+
+  }
+
+  let buttonaddobject = document.getElementById('buttonaddobject');
+
+  buttonaddobject.addEventListener('click', function () {
+
+    loadObject();
+  });
+
+  function loadObject() {
+    if (objectNameAdd) {
+      const objectNamet = objectNameAdd;
+
+
+      const positionX = parseFloat(document.getElementById("positionX").value);
+      const positionY = parseFloat(document.getElementById("positionY").value);
+      const positionZ = parseFloat(document.getElementById("positionZ").value);
+
+      // Call loadOther function with provided data
+      loadOther(objectNamet, positionX, positionY, positionZ);
+      addNewObjectRow(objectNamet, positionX, positionY, positionZ, objects.length);
+      console.log("Selected object:", objectNamet);
     } else {
-        location.replace(uri);
+      console.log("No object selected.");
+      alert("No object selected.");
     }
+
+
+  }
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const dropdownMenuItems = document.getElementById("dropdownMenuItems");
+    const dropdownItems = dropdownMenuItems.querySelectorAll(".dropdown-item");
+
+    dropdownItems.forEach(function (item) {
+      item.addEventListener("click", function () {
+        objectNameAdd = item.getAttribute("id");
+        document.getElementById("dropdownMenu").textContent = item.textContent;
+        document.getElementById("dropdownMenu").setAttribute("data-selected", objectNameAdd);
+      });
+    });
+  });
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+        var coll = document.querySelectorAll('[data-bs-toggle="collapse"]');
+
+        coll.forEach(function (item) {
+            item.addEventListener('click', function () {
+                var target = document.querySelector(item.getAttribute('href'));
+                var collapses = document.querySelectorAll('.collapse');
+                collapses.forEach(function (collapse) {
+                    if (collapse !== target && collapse.classList.contains('show')) {
+                        collapse.classList.remove('show');
+                    }
+                });
+            });
+        });
+    });
+
+
+
+// Define variables for input fields
+const fovInput = document.getElementById('fovInput');
+const aspectInput = document.getElementById('aspectInput');
+const nearInput = document.getElementById('nearInput');
+const farInput = document.getElementById('farInput');
+const positionXInput = document.getElementById('positionXInput');
+const positionYInput = document.getElementById('positionYInput');
+const positionZInput = document.getElementById('positionZInput');
+
+
+fovInput.addEventListener('input', updateCamera);
+  aspectInput.addEventListener('input', updateCamera);
+  nearInput.addEventListener('input', updateCamera);
+  farInput.addEventListener('input', updateCamera);
+  positionXInput.addEventListener('input', updateCamera);
+  positionYInput.addEventListener('input', updateCamera);
+  positionZInput.addEventListener('input', updateCamera);
+
+    // Function to update camera parameters
+function updateCamera() {
+  camera.fov = parseFloat(fovInput.value);
+  camera.aspect = parseFloat(aspectInput.value);
+  camera.near = parseFloat(nearInput.value);
+  camera.far = parseFloat(farInput.value);
+  camera.position.set(
+    parseFloat(positionXInput.value),
+    parseFloat(positionYInput.value),
+    parseFloat(positionZInput.value)
+  );
+  camera.updateProjectionMatrix();
+  render();
 }
-  document.getElementById("save").addEventListener("click", saveAsImage, false);
- 
 
 
-// Get the path part of the URL
-var path = window.location.pathname;
 
-// Remove parameters if any
-var currentHost = path.split('?')[0];
-// Get the current host URL
+  
 
-// Dynamically set the href attributes of the dropdown items
-document.getElementById("posterreal").href = currentHost + "?obj=posterreal";
-document.getElementById("posterreal2").href = currentHost + "?obj=posterreal2";
 
 </script>
