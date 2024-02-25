@@ -1243,38 +1243,6 @@
 
 
 
-// Define variables for input fields
-const fovInput = document.getElementById('fovInput');
-const aspectInput = document.getElementById('aspectInput');
-const nearInput = document.getElementById('nearInput');
-const farInput = document.getElementById('farInput');
-const positionXInput = document.getElementById('positionXInput');
-const positionYInput = document.getElementById('positionYInput');
-const positionZInput = document.getElementById('positionZInput');
-
-
-fovInput.addEventListener('input', updateCamera);
-  aspectInput.addEventListener('input', updateCamera);
-  nearInput.addEventListener('input', updateCamera);
-  farInput.addEventListener('input', updateCamera);
-  positionXInput.addEventListener('input', updateCamera);
-  positionYInput.addEventListener('input', updateCamera);
-  positionZInput.addEventListener('input', updateCamera);
-
-    // Function to update camera parameters
-function updateCamera() {
-  camera.fov = parseFloat(fovInput.value);
-  camera.aspect = parseFloat(aspectInput.value);
-  camera.near = parseFloat(nearInput.value);
-  camera.far = parseFloat(farInput.value);
-  camera.position.set(
-    parseFloat(positionXInput.value),
-    parseFloat(positionYInput.value),
-    parseFloat(positionZInput.value)
-  );
-  camera.updateProjectionMatrix();
-  render();
-}
 
 
 
