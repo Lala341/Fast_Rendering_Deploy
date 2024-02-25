@@ -12,12 +12,11 @@ The viewer code is provided in this repo, as three .html files for three types o
 
 You can set up a local server on your machine, e.g.,
 ```
-cd nerf_models
 python -m http.server
 ```
 Then open
 ```
-localhost:8000/view_synthetic.html?obj=chair
+localhost:8000
 ```
 Note that you should put the meshes+textures of the chair model in a folder *chair_phone*. The folder should be in the same directory as the html file.
 
