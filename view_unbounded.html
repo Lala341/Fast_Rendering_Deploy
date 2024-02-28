@@ -41,9 +41,16 @@
           Datasets/Load
           </a >
           <ul class=" dropdown-menu">
+            <li><a id="gardenvase" class="dropdown-item">gardenvase</a></li>
+
               <li><a id="posterrealimage4" class="dropdown-item">posterrealimage4</a></li>
               <li><a id="posterrealimage8" class="dropdown-item">posterrealimage8</a></li>
               <li><a id="posterrealimage4m" class="dropdown-item">posterrealimage4_mask</a></li>
+
+              <li><a id="posterrealimage4full" class="dropdown-item">posterrealimage4full(BOX)</a></li>
+
+
+              
               </ul>
 
           </div>
@@ -564,18 +571,34 @@
       cam_offset_h = 0.2;
       near_plane = 0.1;
     }
-    if (obj_name == "posterreal2") {
-      object_offset_x = object_offset_x_p;
-      object_offset_y = object_offset_y_p;
-      object_offset_z = object_offset_z_p;
+    if (obj_name == "posterrealimage4full") {
+      object_offset_x = 0.2;
+      object_offset_y = 0.2;
+      object_offset_z = 0;
       cam_offset_w = 0.8;
       cam_offset_h = 0.2;
-      near_plane = 0.5;
+      near_plane = 0.1;
     }
-    if (obj_name == "posterreal3") {
-      object_offset_x = object_offset_x_p;
-      object_offset_y = object_offset_y_p;
-      object_offset_z = object_offset_z_p;
+    if (obj_name == "posterrealimage4") {
+      object_offset_x = 0.2;
+      object_offset_y = 0.2;
+      object_offset_z = 0;
+      cam_offset_w = 0.8;
+      cam_offset_h = 0.2;
+      near_plane = 0.1;
+    }
+    if (obj_name == "posterrealimage4m") {
+      object_offset_x = 0.2;
+      object_offset_y = 0.2;
+      object_offset_z = 0.2;
+      cam_offset_w = 0.8;
+      cam_offset_h = 0.2;
+      near_plane = 0.1;
+    }
+    if (obj_name == "posterrealimage8") {
+      object_offset_x = 0.2;
+      object_offset_y = 0.2;
+      object_offset_z = 0.2;
       cam_offset_w = 0.8;
       cam_offset_h = 0.2;
       near_plane = 0.1;
@@ -1104,9 +1127,12 @@
   // Get the current host URL
 
   // Dynamically set the href attributes of the dropdown items
+  document.getElementById("gardenvase").href = currentHost + "?obj=gardenvase";
+
   document.getElementById("posterrealimage4").href = currentHost + "?obj=posterrealimage4";
   document.getElementById("posterrealimage8").href = currentHost + "?obj=posterrealimage8";
   document.getElementById("posterrealimage4m").href = currentHost + "?obj=posterrealimage4m";
+  document.getElementById("posterrealimage4full").href = currentHost + "?obj=posterrealimage4full";
 
 
 
@@ -1243,7 +1269,22 @@
 
 
 
+    var btn = document.createElement("button");   // Create a <button> element
+btn.innerHTML = "Home";                       // Insert text
+btn.style.position = "fixed";                 // Position it fixed
+btn.style.bottom = "20px";                    // 20px from the bottom
+btn.style.right = "20px";                     // 20px from the right
+btn.style.width = "100px";                    // Width of the button
+btn.style.height = "50px";                    // Height of the button
+btn.style.fontSize = "15px";                  // Font size of the button text
+btn.style.color = "white";                  // Font size of the button text
+btn.style.backgroundColor = "black";                  // Font size of the button text
+btn.style.borderRadius = "10px";                  // Font size of the button text
 
+btn.onclick = function () {                   // On click function
+    location.href='index.html';               // Redirect to home page
+};
+document.body.appendChild(btn);  
 
 
 

@@ -1,9 +1,18 @@
 # MobileNeRF
 
-
-This code is created by [Zhiqin Chen](https://czq142857.github.io/) when he was a student researcher at Google.
+Original code is created by [Zhiqin Chen](https://czq142857.github.io/) when he was a student researcher at Google.
 
 *Please note that this is not an officially supported Google product.*
+
+Here we extend the original viewer with extra functionalities for great user experience and practical purposes.
+
+
+## Content
+This repo contains some already trained mobile-nerf scenes. Instructions to training your own object can be found here:
+
+```
+https://github.com/Lala341/Fast_Rendering_NeRFModels/tree/main/MobileNeRF
+```
 
 
 ## Running the viewer
@@ -12,7 +21,7 @@ The viewer code is provided in this repo, as three .html files for three types o
 
 You can set up a local server on your machine, e.g.,
 ```
-python -m http.server
+python -m http.server 8080
 ```
 Then open
 ```

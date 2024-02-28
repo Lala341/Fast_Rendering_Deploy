@@ -8,17 +8,18 @@
 </head>
 <body class="bg-gray-100 h-screen flex items-center justify-center">
 
-<div class="text-center">
-    <h1 class="text-3xl font-bold mb-4">Viewer Mobilenerf</h1>
-    <p class="mb-4">Which is your type of data?</p>
-
-    <!-- Buttons for different options -->
-    <div class="space-x-4">
-        <a href="view_synthetic.html?obj=chair" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Synthetic</a>
-        <a href="view_forwardfacing.html?obj=posterreal" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Forward Facing</a>
-        <a href="view_unbounded.html?obj=posterreal" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Real 360</a>
+    <div class="text-center">
+        <h1 class="text-3xl font-bold mb-4">Viewer Mobilenerf</h1>
+        <p class="mb-4">Which is your type of data?</p>
+    
+        <!-- Buttons for different options -->
+        <div class="md:flex md:flex-col md:space-y-4 md:items-center">
+            <a href="view_synthetic.html?obj=chair" class="md:w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-2 md:mb-0">Synthetic</a>
+            <a href="view_forwardfacing.html?obj=room" class="md:w-full bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mb-2 md:mb-0">Forward Facing</a>
+            <a href="view_unbounded.html?obj=gardenvase" class="md:w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Real 360</a>
+        </div>
     </div>
-</div>
+    
 
 </body>
 </html>
